@@ -1,0 +1,50 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-10-24 13:56:13
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-24 16:06:33
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var vm = {
+            _data: {
+                count: 0,
+                name: 'vuejs'
+            }
+        };
+        Object.defineProperty(vm, 'data', {
+            get: function() {
+                return this._data;
+                /**
+                 * @name: 
+                 * @test: test font
+                 * @msg: 在vuejs里面当读取data属性当时候会执行这里的get方法
+                 * @param {type} 
+                 * @return: 
+                 */    
+            },
+            set: function(newValue) {
+                this._data = newValue;
+                /**
+                 * @name: 
+                 * @test: test font
+                 * @msg: 在vuejs里面当vue的data数据修改当时候会走set执行方法
+                 * @param {type} 
+                 * @return: 
+                 */    
+            }
+        });
+        vm.data.count = 2;
+    </script>
+</body>
+</html>

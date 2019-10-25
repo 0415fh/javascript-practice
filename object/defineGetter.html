@@ -1,0 +1,58 @@
+<!--
+ * @Descripttion: 
+ * @version: 
+ * @Author: sueRimn
+ * @Date: 2019-10-24 15:48:42
+ * @LastEditors: sueRimn
+ * @LastEditTime: 2019-10-24 16:10:13
+ -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var vm = {
+            _data: {
+                count: 0,
+                msg: 'vue响应式实现核心函数低版本兼容'
+            }
+        };
+        vm.__defineGetter__('data', function() {
+            return this._data;
+        });
+        vm.__defineSetter__('data', function (newValue) {
+            this._data = newValue;
+        });
+        vm.data.msg = 'defineProperty 函数低版本浏览器兼容方法'
+        console.log(vm.data);
+
+
+
+    var book = {};
+    Object.defineProperties(book, {
+        _year: {
+            value: 2004
+        },
+        edition: {
+            value: 1
+        },
+        year: {
+            get: function(){
+                return this._year;
+            },
+            set: function(newValue){
+                if (newValue > 2004) {
+                    this._year = newValue;
+                    this.edition += newValue - 2004;
+                }
+            }
+        }
+    })
+    </script>
+</body>
+</html>
